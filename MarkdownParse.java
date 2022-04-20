@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class MarkdownParse {
 
-    public static ArrayList<String> getLinks(String markdown) {
+    public static ArrayList<String> getLinks(String markdown) throws IOException {
         ArrayList<String> toReturn = new ArrayList<>();
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
@@ -23,6 +23,11 @@ public class MarkdownParse {
             }
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
+        }
+
+        // throw an error if the file is empty
+        if (markdown.length() == 0) {
+            throw new IOException("Empty File!");
         }
 
         return toReturn;
