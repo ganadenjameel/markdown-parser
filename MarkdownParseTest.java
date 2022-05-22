@@ -14,7 +14,6 @@ public class MarkdownParseTest {
         Path fileName = Path.of("snippet1.md");
         String content = Files.readString(fileName);
         ArrayList<String> expected = new ArrayList<>();
-        expected.add("url.com");
         expected.add("`google.com");
         expected.add("google.com");
         expected.add("ucsd.edu");
